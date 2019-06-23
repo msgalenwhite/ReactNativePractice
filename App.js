@@ -1,19 +1,31 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react';
+import { View, Text, StyleSheet, Button } from 'react-native';
+import IceCreamButton from './src/app/IceCreamButton';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
+export default class HomePage extends Component {
+  render() {
+    return (
+      <View style={styles.viewStyle}>
+        <Text style={styles.blue}>What's your favorite flavor of ice cream?</Text>
+
+        <View style={styles.viewStyle}>
+          <IceCreamButton/>
+        </View>
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  blue: {
+    color: 'blue',
+    fontWeight: 'bold',
+    fontSize: 30
   },
-});
+  viewStyle: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 10
+  }
+})
