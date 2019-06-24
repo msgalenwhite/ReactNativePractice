@@ -1,10 +1,22 @@
 import React, { Component } from 'react'
 import { Button, Alert, View, StyleSheet } from 'react-native'
 
-export default class IceCreamButton extends Component {
-  _onPressButton = () => {
-    Alert.alert(`I like ${this.props.flavor}, too!`)
+export default class AnswerButton extends Component {
+  _onAnswerAlert = () => {
+    Alert.alert('cool')
   }
+
+  _onPressButton = () => {
+    Alert.alert(
+      "Good Choice!",
+      `I like ${this.props.answerText}, too!`,
+      [{
+        text: 'Continue',
+        onPress: this.props.incrementQuestion
+      }]
+    )
+  }
+
   render() {
     return(
       <View style={[
@@ -13,7 +25,7 @@ export default class IceCreamButton extends Component {
       ]}>
         <Button
           onPress={this._onPressButton}
-          title={this.props.flavor}
+          title={this.props.answerText}
           color="white"
         />
       </View>
