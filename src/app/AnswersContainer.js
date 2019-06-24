@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
-import { flavors } from './flavors'
-import IceCreamButton from './IceCreamButton'
+import AnswerButton from './AnswerButton'
 
-export default class IceCreamContainer extends Component {
+export default class AnswersContainer extends Component {
   _buttonChoices() {
-    const buttons = flavors.map((flavor) => {
+    const buttons = this.props.answers.map((answer) => {
       return (
-        <IceCreamButton
-          flavor={flavor.name}
-          key={flavor.name}
-          color={flavor.color}
+        <AnswerButton
+          answerText={answer.name}
+          key={answer.name}
+          color={answer.color}
+          incrementQuestion={this.props.incrementQuestion}
         />
       )
     })
